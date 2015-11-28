@@ -16,9 +16,7 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.contrib import admin
 from rest_framework.routers import SimpleRouter
-
 import authentication.urls
-
 import authentication
 from authentication.views.api_v1.user_api import AuthenticatedUserViewSet
 
@@ -26,14 +24,11 @@ router = SimpleRouter()
 
 router.register("user", AuthenticatedUserViewSet)
 
-
-
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
 
     url(r'^users/', include(authentication.urls)),
 
-    url(r'^api/', include(router.urls)),
-
+    url(r'^custom_api_permissions/', include(router.urls)),
 
 ]

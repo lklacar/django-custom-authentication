@@ -1,0 +1,3 @@
+[submodule "custom_api_permissions"]
+	path = custom_api_permissions
+	url = https://github.com/AppexX/django-custom-api-permissions.git

@@ -1,6 +1,6 @@
 from rest_framework.permissions import IsAdminUser
 
-from api.viewsets.custom_permission_model_view_set import CustomPermissionModelViewSet
+from custom_api_permissions.viewsets.custom_permission_model_view_set import CustomPermissionModelViewSet
 from authentication.models import User
 from authentication.serializers.user_serializer import UserSerializer
 
