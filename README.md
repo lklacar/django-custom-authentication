@@ -1,2 +1,2 @@
-# django-custom-authentication
-Django Custom Authentication
+# django-helpers
+Django Helpers
