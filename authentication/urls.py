@@ -1,6 +1,6 @@
 from django.conf.urls import url
-from authentication.views.create_user_view import CreateUserView
-from authentication.views.login_user_view import LoginUserView
+from authentication.views.create_user import CreateUserView
+from authentication.views.authenticate_user import LoginUserView
 
 urlpatterns = [
     url(r'^register/', CreateUserView.as_view(), name='register'),

@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 # Register your models here.
-from authentication.models import EmailUser
-from authentication.models.email_user_admin import EmailUserAdmin
+from authentication.models import User
+from authentication.models.user_admin import UserAdmin
 
-admin.site.register(EmailUser, EmailUserAdmin)
+admin.site.register(User, UserAdmin)

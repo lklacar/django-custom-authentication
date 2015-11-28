@@ -1,21 +1,21 @@
 from django.contrib.auth.forms import UserCreationForm
 
-from authentication.models import EmailUser
+from authentication.models import User
 
 
-class EmailUserCreateForm(UserCreationForm):
+class CreateUserForm(UserCreationForm):
     """
     A form that creates a user, with no privileges, from the given email and
     password.
     """
 
     def __init__(self, *args, **kargs):
-        super(EmailUserCreateForm, self).__init__(*args, **kargs)
+        super(CreateUserForm, self).__init__(*args, **kargs)
 
 
 
     class Meta:
-        model = EmailUser
+        model = User
         fields = ("email",)
 
         error_messages = {

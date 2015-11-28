@@ -1,19 +1,19 @@
 from django.contrib.auth.forms import UserChangeForm
 
-from authentication.models import EmailUser
+from authentication.models import User
 
 
-class EmailUserChangeForm(UserChangeForm):
+class ChangeUserForm(UserChangeForm):
     """A form for updating users. Includes all the fields on
     the user, but replaces the password field with admin's
     password hash display field.
     """
 
     def __init__(self, *args, **kargs):
-        super(EmailUserChangeForm, self).__init__(*args, **kargs)
+        super(ChangeUserForm, self).__init__(*args, **kargs)
         #del self.fields['username']
 
 
     class Meta:
-        model = EmailUser
+        model = User
         fields = ['email', 'password']

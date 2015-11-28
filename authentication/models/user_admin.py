@@ -1,12 +1,12 @@
 from django.contrib.auth.admin import UserAdmin
 
 from django.utils.translation import ugettext_lazy as _
-from authentication.forms.email_user_change_form import EmailUserChangeForm
+from authentication.forms.change_user import ChangeUserForm
 
-from authentication.forms.email_user_creation_form import EmailUserCreateForm
+from authentication.forms.create_user import CreateUserForm
 
 
-class EmailUserAdmin(UserAdmin):
+class UserAdmin(UserAdmin):
     # The forms to add and change user instances
 
     # The fields to be used in displaying the User model.
@@ -25,8 +25,8 @@ class EmailUserAdmin(UserAdmin):
             'fields': ('email', 'password1', 'password2')}
          ),
     )
-    form = EmailUserChangeForm
-    add_form = EmailUserCreateForm
+    form = ChangeUserForm
+    add_form = CreateUserForm
     list_display = ('email', 'first_name', 'last_name', 'is_staff')
     search_fields = ('email', 'first_name', 'last_name')
     ordering = ('email',)
