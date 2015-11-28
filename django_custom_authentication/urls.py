@@ -29,6 +29,6 @@ urlpatterns = [
 
     url(r'^users/', include(authentication.urls)),
 
-    url(r'^custom_api_permissions/', include(router.urls)),
+    url(r'^api/', include(router.urls)),
 
 ]
