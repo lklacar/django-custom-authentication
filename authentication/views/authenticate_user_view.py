@@ -1,7 +1,7 @@
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.forms import AuthenticationForm
 from django.http import HttpResponseRedirect
-from django.shortcuts import render_to_response
+from django.shortcuts import render_to_response, redirect
 from django.template import RequestContext
 from django.views.generic import TemplateView
 
@@ -10,8 +10,11 @@ class LoginUserView(TemplateView):
     template_name = "authentication/login.html"
 
     def get(self, request, *args, **kwargs):
-        data = {}
-        data['form'] = AuthenticationForm()
+        data = {'form': AuthenticationForm()}
+
+        if request.user.is_authenticated():
+            return redirect("/")
+
         return render_to_response(self.template_name, data, context_instance=RequestContext(request))
 
     def post(self, request):

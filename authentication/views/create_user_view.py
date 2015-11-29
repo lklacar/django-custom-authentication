@@ -1,8 +1,7 @@
 from django.http import HttpResponse
-from django.shortcuts import render_to_response
+from django.shortcuts import render_to_response, redirect
 from django.template import RequestContext
 from django.views.generic import TemplateView
-
 from authentication.forms.create_user import CreateUserForm
 from authentication.models import User
 
@@ -11,8 +10,11 @@ class CreateUserView(TemplateView):
     template_name = "authentication/register.html"
 
     def get(self, request, *args, **kwargs):
-        data = {}
-        data['form'] = CreateUserForm()
+        data = {'form': CreateUserForm()}
+
+        if request.user.is_authenticated():
+            return redirect("/")
+
         return render_to_response(self.template_name, data, context_instance=RequestContext(request))
 
     def post(self, request):
@@ -28,9 +30,6 @@ class CreateUserView(TemplateView):
             user.set_password(data['password1'])
             user.save()
 
-
             return HttpResponse("DONE")
-
-
 
         return render_to_response(self.template_name, {'form': form}, context_instance=RequestContext(request))
