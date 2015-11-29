@@ -1,24 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends "index.html" %}
+{% load bootstrap %}
 
 
-<h1>errors</h1>
-{{  form.errors }}
+{% block content %}
+    <h1>Login</h1>
 
-<form action="{% url 'login' %}" method="POST" >
-    {% csrf_token %}
+    <form action="{% url 'login' %}" method="POST">
+        {% csrf_token %}
 
-    {{ form }}
-
-
-    <input type="submit" value="asd"/>
-</form>
+        {{ form|bootstrap }}
 
 
-</body>
-</html>
+        <input type="submit" value="Login"/>
+    </form>
+{% endblock %}

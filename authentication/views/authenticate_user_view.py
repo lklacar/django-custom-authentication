@@ -1,4 +1,4 @@
-from django.contrib.auth import authenticate
+from django.contrib.auth import authenticate, login
 from django.contrib.auth.forms import AuthenticationForm
 from django.http import HttpResponseRedirect
 from django.shortcuts import render_to_response
@@ -7,7 +7,7 @@ from django.views.generic import TemplateView
 
 
 class LoginUserView(TemplateView):
-    template_name = "users/login.html"
+    template_name = "authentication/login.html"
 
     def get(self, request, *args, **kwargs):
         data = {}
@@ -23,7 +23,9 @@ class LoginUserView(TemplateView):
             password = form.cleaned_data['password']
 
             user = authenticate(username=username, password=password)
+            login(request, user)
+            print request.user.is_authenticated()
             if user:
-                return HttpResponseRedirect('/thanks/')
-            else:
-                return render_to_response(self.template_name, {'form': form}, context_instance=RequestContext(request))
+                return HttpResponseRedirect('/')
+
+        return render_to_response(self.template_name, {'form': form}, context_instance=RequestContext(request))

@@ -27,6 +27,8 @@ router.register("user", AuthenticatedUserViewSet)
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
 
+    url(r'$^', "authentication.views.index.index", name="index"),
+
     url(r'^users/', include(authentication.urls)),
 
     url(r'^api/', include(router.urls)),

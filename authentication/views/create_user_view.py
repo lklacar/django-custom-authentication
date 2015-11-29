@@ -8,7 +8,7 @@ from authentication.models import User
 
 
 class CreateUserView(TemplateView):
-    template_name = "users/register.html"
+    template_name = "authentication/register.html"
 
     def get(self, request, *args, **kwargs):
         data = {}
