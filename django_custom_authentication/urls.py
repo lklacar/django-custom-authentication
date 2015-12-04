@@ -33,4 +33,7 @@ urlpatterns = [
 
     url(r'^api/', include(router.urls)),
 
+
+    url(r'^angular/', "app.views.index", name="angular"),
+
 ]
