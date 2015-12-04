@@ -30,6 +30,6 @@ class CreateUserView(TemplateView):
             user.set_password(data['password1'])
             user.save()
 
-            return HttpResponse("DONE")
+            return redirect("/")
 
         return render_to_response(self.template_name, {'form': form}, context_instance=RequestContext(request))
