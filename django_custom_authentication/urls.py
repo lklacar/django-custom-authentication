@@ -34,6 +34,11 @@ urlpatterns = [
     url(r'^api/', include(router.urls)),
 
 
+
+    url(r'^angular/list', "app.views.list", name="list"),
+
     url(r'^angular/', "app.views.index", name="angular"),
+
+
 
 ]

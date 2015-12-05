@@ -1,6 +1,6 @@
 {% load staticfiles %}
 <html>
-
+<base href="/angular">
 <head>
 
 </head>
@@ -8,6 +8,17 @@
 
 <body>
 
+
+<div ng-app="app">
+
+
+    <div ng-view>
+
+
+    </div>
+
+
+</div>
 
 
 <script src="{% static 'js/app.js' %}"></script>
